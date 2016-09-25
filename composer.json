@@ -18,6 +18,11 @@
     "illuminate/view": "5.3.*",
     "laravelcollective/html": "5.3.*"
   },
+  "require-dev": {
+    "illuminate/database": "5.3.*",
+    "mockery/mockery": "~0.9.4",
+    "phpunit/phpunit": "~5.4"
+  },
   "repositories": [
     {
       "url": "https://github.com/hoangdv1112/hform",
@@ -34,5 +39,7 @@
     "psr-4": {
       "HCollection\\HForm\\": "src/"
     }
-  }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }
