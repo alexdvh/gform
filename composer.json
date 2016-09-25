@@ -7,7 +7,13 @@
       "email": "hoangdv1112@gmail.com"
     }
   ],
-  "minimum-stability": "dev",
+  "repositories": [
+    {
+      "url": "git@github.com:hoangdv1112/hform.git",
+      "type": "vcs"
+            
+      }
+    ],
   "require": {
     "php": ">=5.6.4",
     "illuminate/http": "5.3.*",
@@ -16,6 +22,11 @@
     "illuminate/support": "5.3.*",
     "illuminate/view": "5.3.*",
     "laravelcollective/html": "5.3.*"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0.x-dev"
+    }
   },
   "autoload": {
     "psr-4": {
