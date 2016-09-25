@@ -23,13 +23,6 @@
     "mockery/mockery": "~0.9.4",
     "phpunit/phpunit": "~5.4"
   },
-  "repositories": [
-    {
-      "url": "https://github.com/hoangdv1112/hform",
-      "type": "vcs"
-            
-    }
-  ],
   "extra": {
     "branch-alias": {
       "dev-master": "1.0.x-dev"
