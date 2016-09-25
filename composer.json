@@ -40,5 +40,6 @@
       "HCollection\\HForm\\": "src/"
     }
   },
+  "minimum-stability": "dev",
   "prefer-stable": true
 }
