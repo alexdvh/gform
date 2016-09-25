@@ -167,19 +167,18 @@ class HFormBuilder extends FormBuilder
      *
      * @return mixed
      */
-    public function makeConponent($item = null, $view = null)
+    public function makeComponent($item = null, $view = null)
     {
         if (!empty($item) && is_array($item)) {
             $viewDef = 'hform::form.components.form-group';
             // check and set type for input
             $type = !empty($item['xtype']) ? $item['xtype'] : 'text';
             $name = !empty($item['name']) ? $item['name'] : null;
-            $labelField = !empty($item['labelField']) ? $item['labelField'] : null;
             $options = array_except($item, ['name', 'xtype', 'labelField']);
 //            class="form-control"
             $input = '';
+            $label = empty($item['labelField']) ? null : $this->label($name, $item['labelField'], array_except($options, ['class']), $escape_html = true);
 
-            $label = $this->label($name, null, array_except($options, ['class']), $escape_html = true);
             switch (true) {
                 // select
                 case in_array($type, ['select']):
@@ -243,10 +242,12 @@ class HFormBuilder extends FormBuilder
                     break;
 
                 // text, hidden, email, tel, number, data, dateTime, dateTimeLocal, time, url, textarea, color
-                default:
+                case in_array($type, ['text', 'hidden', 'email', 'tel', 'number', 'data', 'dateTime', 'dateTimeLocal', 'time', 'url', 'textarea', 'color']):
                     // re-check with model form
                     $value = !empty($item['value']) ? $item['value'] : null;
                     $input = $this->{$type}($name, $value, $options);
+                    break;
+                default:
                     break;
             }
 
@@ -258,6 +259,54 @@ class HFormBuilder extends FormBuilder
         }
 
         return '';
+    }
+    
+    /**
+     * Make actions
+     * 
+     * @return mixed
+     */
+    public function makeAction($item = null, $view = null)
+    {
+        if (!empty($item) && is_array($item)) {
+            $viewDef = 'hform::form.components.form-action';
+            // check and set type for input
+            $type = !empty($item['xtype']) ? $item['xtype'] : 'text';
+            $value = !empty($item['value']) ? $item['value'] : null;
+            $options = array_except($item, ['name', 'xtype', 'labelField']);
+//            class="form-control"
+            $action = '';
+
+            if (in_array($type, ['submit', 'button'])) {
+                $value = !empty($item['value']) ? $item['value'] : null;
+
+                $action = $this->{$type}($value, $options);
+            }
+
+            return new HtmlString(
+                $this->view
+                    ->make($view ?: $viewDef, compact('action'))
+                    ->render()
+            );
+        }
+        
+        return '';
+    }
+    
+    /**
+     * get buttons
+     * 
+     * @return mixed
+     */
+    public function getButtons()
+    {
+        $cfg = $this->getCfg();
+
+        if (isset($cfg['buttons']) && is_array($cfg['buttons'])) {
+            return $cfg['buttons'];
+        }
+
+        return null;
     }
 
     /**
@@ -291,7 +340,7 @@ class HFormBuilder extends FormBuilder
             $items = $this->getItems();
 
             foreach ($items as $item) {
-                $fields .= $this->makeConponent($item);
+                $fields .= $this->makeComponent($item);
             }
         }
         
@@ -309,7 +358,15 @@ class HFormBuilder extends FormBuilder
     public function makeFooter($view = null)
     {
         $viewDef = 'hform::form.components.panel-footer';
-        $buttons = $this->getTitle();
+        $buttons = '';
+        
+        if ($this->getButtons() !== null) {
+            $btns = $this->getButtons();
+                
+            foreach ($btns as $btn) {
+                $buttons .= $this->makeAction($btn);
+            }
+        }
 
         return new HtmlString(
             $this->view
