@@ -1,6 +1,6 @@
 <?php
 
-namespace HHCollection\HForm;
+namespace HCollection\HForm;
 
 use Collective\Html\FormBuilder;
 use Illuminate\Support\HtmlString;
@@ -116,7 +116,7 @@ class HFormBuilder extends FormBuilder
      */
     public function make($view = null)
     {
-        $viewDef = $view ?: 'vendor.form.form-panel';
+        $viewDef = $view ?: 'hform::form.form-panel';
         // Open form
         $frmOp = $this->makeOpen();
         // Close form
@@ -170,7 +170,7 @@ class HFormBuilder extends FormBuilder
     public function makeConponent($item = null, $view = null)
     {
         if (!empty($item) && is_array($item)) {
-            $viewDef = 'vendor.form.components.form-group';
+            $viewDef = 'hform::form.components.form-group';
             // check and set type for input
             $type = !empty($item['xtype']) ? $item['xtype'] : 'text';
             $name = !empty($item['name']) ? $item['name'] : null;
@@ -267,7 +267,7 @@ class HFormBuilder extends FormBuilder
      */
     public function makeHeader($view = null)
     {
-        $viewDef = 'vendor.form.components.panel-header';
+        $viewDef = 'hform::form.components.panel-header';
         $title = $this->getTitle();
 
         return new HtmlString(
@@ -284,7 +284,7 @@ class HFormBuilder extends FormBuilder
      */
     public function makeBody($view = null)
     {
-        $viewDef = 'vendor.form.components.panel-body';
+        $viewDef = 'hform::form.components.panel-body';
         $fields = '';
         
         if ($this->getItems() !== null) {
@@ -308,7 +308,7 @@ class HFormBuilder extends FormBuilder
      */
     public function makeFooter($view = null)
     {
-        $viewDef = 'vendor.form.components.panel-footer';
+        $viewDef = 'hform::form.components.panel-footer';
         $buttons = $this->getTitle();
 
         return new HtmlString(
