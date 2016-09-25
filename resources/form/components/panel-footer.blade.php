@@ -1,1 +1,0 @@
-<div class="panel-footer">{!! $buttons !!}</div>
