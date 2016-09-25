@@ -1,0 +1,25 @@
+{
+  "name": "hoangdv1112/hform",
+  "description": "Generate form with config",
+  "authors": [
+    {
+      "name": "Hoangdv",
+      "email": "hoangdv1112@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=5.6.4",
+    "illuminate/http": "5.3.*",
+    "illuminate/routing": "5.3.*",
+    "illuminate/session": "5.3.*",
+    "illuminate/support": "5.3.*",
+    "illuminate/view": "5.3.*",
+    "laravelcollective/html": "5.3.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "HCollection\\HForm\\": "src/"
+    }
+  }
+}
