@@ -2,12 +2,12 @@
 
 ## Config
 ### Inject Provider
-config/app.php
-Provider
-Collective\Html\HtmlServiceProvider::class,\n
-HCollection\HForm\HFormServiceProvider::class,
-
-Alias
-'Html' => Collective\Html\HtmlFacade::class,
- 'Form' => Collective\Html\FormFacade::class,
-'HForm' => HCollection\HForm\Facades\HFormFacade::class,
+config/app.php<br/>
+<b>Provider</b><br/>
+Collective\Html\HtmlServiceProvider::class<br/>
+HCollection\HForm\HFormServiceProvider::class<br/>
+<br/>
+<b>Alias</b><br/>
+'Html' => Collective\Html\HtmlFacade::class<br/>
+ 'Form' => Collective\Html\FormFacade::class<br/>
+'HForm' => HCollection\HForm\Facades\HFormFacade::class<br/>
