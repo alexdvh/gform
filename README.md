@@ -4,7 +4,7 @@
 ### Inject Provider
 config/app.php
 Provider
-Collective\Html\HtmlServiceProvider::class,
+Collective\Html\HtmlServiceProvider::class,\n
 HCollection\HForm\HFormServiceProvider::class,
 
 Alias
