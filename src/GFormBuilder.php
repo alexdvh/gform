@@ -1,11 +1,11 @@
 <?php
 
-namespace HCollection\HForm;
+namespace GCollection\GForm;
 
 use Collective\Html\FormBuilder;
 use Illuminate\Support\HtmlString;
 
-class HFormBuilder extends FormBuilder
+class GFormBuilder extends FormBuilder
 {
     protected $cfg;
 
@@ -116,7 +116,7 @@ class HFormBuilder extends FormBuilder
      */
     public function make($view = null)
     {
-        $viewDef = $view ?: 'hform::form.form-panel';
+        $viewDef = $view ?: 'GForm::form.form-panel';
         // Open form
         $frmOp = $this->makeOpen();
         // Close form
@@ -170,7 +170,7 @@ class HFormBuilder extends FormBuilder
     public function makeComponent($item = null, $view = null)
     {
         if (!empty($item) && is_array($item)) {
-            $viewDef = 'hform::form.components.form-group';
+            $viewDef = 'GForm::form.components.form-group';
             // check and set type for input
             $type = !empty($item['xtype']) ? $item['xtype'] : 'text';
             $name = !empty($item['name']) ? $item['name'] : null;
@@ -269,7 +269,7 @@ class HFormBuilder extends FormBuilder
     public function makeAction($item = null, $view = null)
     {
         if (!empty($item) && is_array($item)) {
-            $viewDef = 'hform::form.components.form-action';
+            $viewDef = 'GForm::form.components.form-action';
             // check and set type for input
             $type = !empty($item['xtype']) ? $item['xtype'] : 'text';
             $value = !empty($item['value']) ? $item['value'] : null;
@@ -316,7 +316,7 @@ class HFormBuilder extends FormBuilder
      */
     public function makeHeader($view = null)
     {
-        $viewDef = 'hform::form.components.panel-header';
+        $viewDef = 'GForm::form.components.panel-header';
         $title = $this->getTitle();
 
         return new HtmlString(
@@ -333,7 +333,7 @@ class HFormBuilder extends FormBuilder
      */
     public function makeBody($view = null)
     {
-        $viewDef = 'hform::form.components.panel-body';
+        $viewDef = 'GForm::form.components.panel-body';
         $fields = '';
         
         if ($this->getItems() !== null) {
@@ -357,7 +357,7 @@ class HFormBuilder extends FormBuilder
      */
     public function makeFooter($view = null)
     {
-        $viewDef = 'hform::form.components.panel-footer';
+        $viewDef = 'GForm::form.components.panel-footer';
         $buttons = '';
         
         if ($this->getButtons() !== null) {

@@ -1,13 +1,13 @@
 <?php
 
-namespace HCollection\HForm\Facades;
+namespace GCollection\GForm\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
  * @see \Collective\Html\FormBuilder
  */
-class HFormFacade extends Facade
+class GFormFacade extends Facade
 {
 
     /**
@@ -17,6 +17,6 @@ class HFormFacade extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'hform';
+        return 'GForm';
     }
 }

@@ -1,7 +1,7 @@
 <?php 
-namespace HCollection\HForm;
+namespace GCollection\GForm;
 
-use HCollection\HForm\HFormBuilder;
+use GCollection\GForm\GFormBuilder;
 use Illuminate\Support\ServiceProvider;
 /**
  * ServiceProvider
@@ -11,26 +11,26 @@ use Illuminate\Support\ServiceProvider;
  * i.e. with their routes, views etc.
  *
  * @author Hoangdv <hoangdv1112@gmail.com>
- * @package HCollection\HForm
+ * @package GCollection\GForm
  */
-class HFormServiceProvider extends ServiceProvider
+class GFormServiceProvider extends ServiceProvider
 {
     public function boot()
     {
         $pkg_path = dirname(__DIR__);
         $views_path = $pkg_path . '/resources/views';
 
-        $this->loadViewsFrom($views_path, 'hform');
+        $this->loadViewsFrom($views_path, 'GForm');
         $this->publishes([
-            $views_path => base_path('resources/views/vendor/hform')
+            $views_path => base_path('resources/views/vendor/GForm')
         ]);
         
     }
     
     public function register() {
-        $this->registerHFormBuilder();
+        $this->registerGFormBuilder();
 
-        $this->app->alias('hform', 'HCollection\HForm\Facades\HFormFacade');
+        $this->app->alias('GForm', 'GCollection\GForm\Facades\GFormFacade');
     }
 
     /**
@@ -38,11 +38,11 @@ class HFormServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function registerHFormBuilder()
+    protected function registerGFormBuilder()
     {
-        $this->app->singleton('hform', function ($app) {
+        $this->app->singleton('GForm', function ($app) {
 
-            $form = new HFormBuilder($app['html'], $app['url'], $app['view'], $app['session.store']->getToken());
+            $form = new GFormBuilder($app['html'], $app['url'], $app['view'], $app['session.store']->getToken());
 
             return $form->setSessionStore($app['session.store']);
         });

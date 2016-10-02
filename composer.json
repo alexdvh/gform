@@ -1,8 +1,8 @@
 {
-  "name": "hoangdv1112/hform",
+  "name": "hoangdv1112/gform",
   "description": "Generate form with config",
   "license": "MIT",
-  "keywords": ["form", "hform"],
+  "keywords": ["form", "gform"],
   "authors": [
     {
       "name": "Hoangdv",
@@ -30,7 +30,7 @@
   },
   "autoload": {
     "psr-4": {
-      "HCollection\\HForm\\": "src/"
+      "GCollection\\GForm\\": "src/"
     }
   },
   "prefer-stable": true

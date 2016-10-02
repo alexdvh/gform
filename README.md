@@ -1,2 +1,2 @@
-# hform
-Data form
+# Gform
+Generate form
