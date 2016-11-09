@@ -33,5 +33,6 @@
       "GCollection\\GForm\\": "src/"
     }
   },
-  "prefer-stable": false
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }
