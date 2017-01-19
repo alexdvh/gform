@@ -1,4 +1,4 @@
-# GForm
+# Generate Form
 
 ## Config
 ### Inject Provider
